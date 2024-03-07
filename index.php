@@ -89,11 +89,13 @@
         }
         ?>
     </div>
-    <button class="carousel-control-prev black" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <button class="carousel-control-prev black" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next black" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <button class="carousel-control-next black" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
@@ -159,6 +161,31 @@
     </div>
 </div>
 <hr id="contacts" class="my-3 container pt-4"/>
+<div class="container my-4">
+    <h2 class="text-center">Rate our services</h2>
+    <form id="ratingForm" class="row g-3" action="postRatings.php" method="post">
+        <div class="col-md-6">
+            <fieldset>
+                <legend>Rate from 1 to 10:</legend>
+                <?php for ($i = 1; $i <= 10; $i++) { ?>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rating" id="rating<?php echo $i; ?>"
+                               value="<?php echo $i; ?>">
+                        <label class="form-check-label" for="rating<?php echo $i; ?>"><?php echo $i; ?></label>
+                    </div>
+                <?php } ?>
+            </fieldset>
+        </div>
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    <?php
+    require_once 'getRatings.php';
+    ?>
+
+</div>
+
 <div class="container p-3">
     <h2 class="text-center">Contacts</h2>
     <div class="row">
@@ -220,6 +247,7 @@
         </ul>
     </footer>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
@@ -231,5 +259,7 @@
         wrap: true // позволяет карусели зацикливаться, когда достигнут последний или первый слайд
     });
 </script>
+
 </body>
 </html>
+
